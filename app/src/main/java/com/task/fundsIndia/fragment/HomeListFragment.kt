@@ -70,12 +70,6 @@ class HomeListFragment(private var mCallBack: NavigationActivityViewModel.Naviga
         TODO("Not yet implemented")
     }
 
-   /* override fun onDestroyView() {
-        super.onDestroyView()
-        mBinding.rvPassengerList.adapter = null
-        adapter = null
-    }*/
-
     override fun loadVideoListAdapter(videoFilesList: MutableList<VideoFilesResponseModel>) {
         if (adapter != null) {
             adapter!!.updateData(videoFilesList);
