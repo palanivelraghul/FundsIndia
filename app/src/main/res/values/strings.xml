@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FITask</string>
+    <string name="text_sample_toast_message">Test Toast Message</string>
+    <string name="text_video">Videos</string>
+    <string name="text_funds_india">FundsINDIA</string>
+    <string name="text_video_details">Video Details</string>
+    <string name="text_video_Id">VideoId: %s</string>
+</resources>
