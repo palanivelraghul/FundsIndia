@@ -25,7 +25,11 @@ class HomeListFragment(private var mCallBack: NavigationActivityViewModel.Naviga
 
     private var adapter: VideoFileListAdapter? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         mBinding = FragmentHomeListBinding.inflate(inflater, container, false)
         mBinding.viewModel = onCreateViewModel()
         return mBinding.root
@@ -70,6 +74,12 @@ class HomeListFragment(private var mCallBack: NavigationActivityViewModel.Naviga
         TODO("Not yet implemented")
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mBinding.rvPassengerList.adapter = null
+        adapter = null
+    }
+
     override fun loadVideoListAdapter(videoFilesList: MutableList<VideoFilesResponseModel>) {
         if (adapter != null) {
             adapter!!.updateData(videoFilesList);
@@ -77,7 +87,11 @@ class HomeListFragment(private var mCallBack: NavigationActivityViewModel.Naviga
             adapter = VideoFileListAdapter(this, videoFilesList)
             mBinding.rvPassengerList.adapter = adapter
             mBinding.rvPassengerList.layoutManager = LinearLayoutManager(activity!!)
-            mBinding.rvPassengerList.addOnScrollListener(mViewModel.getRecyclerViewPagination(mBinding.rvPassengerList.layoutManager as LinearLayoutManager)!!)
+            mBinding.rvPassengerList.addOnScrollListener(
+                mViewModel.getRecyclerViewPagination(
+                    mBinding.rvPassengerList.layoutManager as LinearLayoutManager
+                )!!
+            )
         }
     }
 
